@@ -21,7 +21,7 @@ var cli *client.Client
 func containers() ([]Container, error) {
 	args := filters.NewArgs()
 	args.Add("status", "exited")
-	// args.Add("status", "paused")
+	args.Add("status", "paused")
 	containers, err := cli.ContainerList(context.Background(), types.ContainerListOptions{
 		Filters: args,
 	})
